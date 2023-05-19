@@ -24,4 +24,4 @@
     mov  ah, 0x4c     ; "terminate program" sub-function
     int  0x21         ; call dos services
 
-    msg  db 'Hello again, World!$'   ; $-terminated message
+    msg  db 'Hello World!$'   ; $-terminated message
