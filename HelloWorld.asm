@@ -1,18 +1,15 @@
-    org  0x100        
-
-    mov  dx, msg      
-    mov  ah, 9        
-    int  0x21         
-
-    mov  dl, 0x0d     
-    mov  ah, 2        
-    int  0x21         
-
-    mov  dl, 0x0a     
-    mov  ah, 2        
-    int  0x21         
-
-    mov  ah, 0x4c     
-    int  0x21         
-
-    msg  db 'Hello World!$'   
+section .text
+    global _start
+section .data
+msg db  'Hello, world!',0xa
+len equ $ - msg
+section .text
+_start:
+    mov edx,len
+    mov ecx,msg
+    mov ebx,1
+    mov eax,4
+    int 0x80
+    mov ebx,0
+    mov eax,1
+    int 0x80
